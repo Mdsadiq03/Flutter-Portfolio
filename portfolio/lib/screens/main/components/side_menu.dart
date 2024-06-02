@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/components/animated_progress_indicator.dart';
 import 'package:portfolio/constants.dart';
+import 'package:portfolio/screens/main/components/area_info_text.dart';
 import 'package:portfolio/screens/main/components/my_info.dart';
 
 class SideMenu extends StatelessWidget {
@@ -9,7 +11,7 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Drawer(
+    return Drawer(
       child: Column(
         children: [
           MyInfo(),
@@ -18,10 +20,48 @@ class SideMenu extends StatelessWidget {
               padding: EdgeInsets.all(defaultPadding),
               child: Column(
                 children: [
-                  AreaInfoText(title: 'Residence', text: 'Tamilnadu',),
-                  AreaInfoText(title: 'City', text: 'Tenkasi',),
-                  AreaInfoText(title: 'Age', text: '20',),
+                  AreaInfoText(
+                    title: 'Residence',
+                    text: 'Tamilnadu',
+                  ),
+                  AreaInfoText(
+                    title: 'City',
+                    text: 'Tenkasi',
+                  ),
+                  AreaInfoText(
+                    title: 'Age',
+                    text: '20',
+                  ),
                   Divider(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: defaultPadding),
+                    child: Text('Skills',
+                        style: Theme.of(context).textTheme.titleSmall),
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: AnimatedCircularProgressIndicator(
+                          percentage: 0.8,
+                          label: 'Flutter',
+                        ),
+                      ),
+                      SizedBox(width: defaultPadding),
+                      Expanded(
+                        child: AnimatedCircularProgressIndicator(
+                          percentage: 0.8,
+                          label: 'Flutter',
+                        ),
+                      ),
+                      SizedBox(width: defaultPadding),
+                      Expanded(
+                        child: AnimatedCircularProgressIndicator(
+                          percentage: 0.8,
+                          label: 'Flutter',
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -32,31 +72,6 @@ class SideMenu extends StatelessWidget {
   }
 }
 
-class AreaInfoText extends StatelessWidget {
-  const AreaInfoText({
-    super.key,
-    this.title,
-    this.text,
-  });
 
-  final String? title, text;
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: defaultPadding / 2),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title!,
-            style: TextStyle(color: Colors.white),
-          ),
-          Text(
-            text!,
-          ),
-        ],
-      ),
-    );
-  }
-}
+
