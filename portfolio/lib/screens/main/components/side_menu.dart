@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/animated_progress_indicator.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/screens/main/components/area_info_text.dart';
+import 'package:portfolio/screens/main/components/coding.dart';
 import 'package:portfolio/screens/main/components/my_info.dart';
+import 'package:portfolio/screens/main/components/skills.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -14,10 +15,10 @@ class SideMenu extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          MyInfo(),
+          const MyInfo(),
           Expanded(
             child: SingleChildScrollView(
-              padding: EdgeInsets.all(defaultPadding),
+              padding: const EdgeInsets.all(defaultPadding),
               child: Column(
                 children: [
                   AreaInfoText(
@@ -32,36 +33,11 @@ class SideMenu extends StatelessWidget {
                     title: 'Age',
                     text: '20',
                   ),
-                  Divider(),
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: defaultPadding),
-                    child: Text('Skills',
-                        style: Theme.of(context).textTheme.titleSmall),
+                  Skills(),
+                  SizedBox(
+                    height: defaultPadding,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: AnimatedCircularProgressIndicator(
-                          percentage: 0.8,
-                          label: 'Flutter',
-                        ),
-                      ),
-                      SizedBox(width: defaultPadding),
-                      Expanded(
-                        child: AnimatedCircularProgressIndicator(
-                          percentage: 0.8,
-                          label: 'Flutter',
-                        ),
-                      ),
-                      SizedBox(width: defaultPadding),
-                      Expanded(
-                        child: AnimatedCircularProgressIndicator(
-                          percentage: 0.8,
-                          label: 'Flutter',
-                        ),
-                      ),
-                    ],
-                  ),
+                  Coding(),
                 ],
               ),
             ),
