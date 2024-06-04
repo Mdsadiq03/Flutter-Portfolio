@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/screens/main/components/area_info_text.dart';
 import 'package:portfolio/screens/main/components/coding.dart';
+import 'package:portfolio/screens/main/components/knowlwdges.dart';
 import 'package:portfolio/screens/main/components/my_info.dart';
 import 'package:portfolio/screens/main/components/skills.dart';
 
@@ -38,6 +39,7 @@ class SideMenu extends StatelessWidget {
                     height: defaultPadding,
                   ),
                   Coding(),
+                  Knowledges(),
                 ],
               ),
             ),
@@ -47,7 +49,5 @@ class SideMenu extends StatelessWidget {
     );
   }
 }
-
-
 
 
