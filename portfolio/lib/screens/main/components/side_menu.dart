@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/screens/main/components/area_info_text.dart';
 import 'package:portfolio/screens/main/components/coding.dart';
@@ -22,24 +23,52 @@ class SideMenu extends StatelessWidget {
               padding: const EdgeInsets.all(defaultPadding),
               child: Column(
                 children: [
-                  AreaInfoText(
+                  const AreaInfoText(
                     title: 'Residence',
                     text: 'Tamilnadu',
                   ),
-                  AreaInfoText(
+                  const AreaInfoText(
                     title: 'City',
                     text: 'Tenkasi',
                   ),
-                  AreaInfoText(
+                  const AreaInfoText(
                     title: 'Age',
                     text: '20',
                   ),
-                  Skills(),
+                  const Skills(),
                   SizedBox(
                     height: defaultPadding,
                   ),
                   Coding(),
                   Knowledges(),
+                  Divider(),
+                  TextButton(
+                    onPressed: () {},
+                    child: FittedBox(
+                      child: Row(
+                        children: [
+                          Text(
+                            'DOWNLOAD CV',
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                          SizedBox(
+                            width: defaultPadding / 2,
+                          ),
+                          SvgPicture.asset('assets/icons/download.svg')
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: defaultPadding),
+                    color: Color(0XEE24242E),
+                    child: Row(children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: SvgPicture.asset('assets/icons/linkedin.svg'),
+                      ),
+                    ]),
+                  ),
                 ],
               ),
             ),
@@ -49,5 +78,3 @@ class SideMenu extends StatelessWidget {
     );
   }
 }
-
-
