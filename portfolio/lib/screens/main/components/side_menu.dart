@@ -42,6 +42,9 @@ class SideMenu extends StatelessWidget {
                   Coding(),
                   Knowledges(),
                   Divider(),
+                  SizedBox(
+                    height: defaultPadding / 2,
+                  ),
                   TextButton(
                     onPressed: () {},
                     child: FittedBox(
@@ -62,12 +65,24 @@ class SideMenu extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(top: defaultPadding),
                     color: Color(0XEE24242E),
-                    child: Row(children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: SvgPicture.asset('assets/icons/linkedin.svg'),
-                      ),
-                    ]),
+                    child: Row(
+                      children: [
+                        Spacer(),
+                        IconButton(
+                          onPressed: () {},
+                          icon: SvgPicture.asset('assets/icons/linkedin.svg'),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: SvgPicture.asset('assets/icons/github.svg'),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: SvgPicture.asset('assets/icons/twitter.svg'),
+                        ),
+                        Spacer(),
+                      ],
+                    ),
                   ),
                 ],
               ),
