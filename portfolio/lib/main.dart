@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/main/main_screen.dart';
+import 'package:portfolio/screens/home/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'constants.dart';
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
               bodyMedium: const TextStyle(color: bodyTextColor),
             ),
       ),
-      home: const MainScreen(),
+      home: const HomeScreen(),
     );
   }
 }
