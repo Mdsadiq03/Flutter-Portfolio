@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
+import 'package:portfolio/responsive.dart';
 
 class HomeBanner extends StatelessWidget {
   const HomeBanner({
@@ -29,17 +30,26 @@ class HomeBanner extends StatelessWidget {
               children: [
                 Text(
                   'Discover my Amazing \nArt Space!',
-                  style:
-                      Theme.of(context).textTheme.headlineLarge!.copyWith(
+                  style: Responsive.isDesktop(context)
+                      ? Theme.of(context).textTheme.headlineLarge!.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          )
+                      : Theme.of(context).textTheme.headlineMedium!.copyWith(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                 ),
-                MyBuildAnimatedText(),
-                SizedBox(
+                if (!Responsive.isMobileLarge(context))
+                  const SizedBox(
+                    height: defaultPadding / 2,
+                  ),
+                const MyBuildAnimatedText(),
+                const SizedBox(
                   height: defaultPadding,
                 ),
-                ElevatedButton(
+                if (!Responsive.isMobileLarge(context))
+                  ElevatedButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.symmetric(
@@ -51,7 +61,8 @@ class HomeBanner extends StatelessWidget {
                     child: Text(
                       'EXPLORE NOW',
                       style: TextStyle(color: darkColor),
-                    )),
+                    ),
+                  ),
               ],
             ),
           ),
@@ -72,8 +83,8 @@ class MyBuildAnimatedText extends StatelessWidget {
       style: Theme.of(context).textTheme.titleSmall!,
       child: Row(
         children: [
-          FlutterCodedText(),
-          SizedBox(
+          if(!Responsive.isMobileLarge(context)) FlutterCodedText(),
+          if(!Responsive.isMobileLarge(context)) SizedBox(
             width: defaultPadding / 2,
           ),
           Text('I build '),
@@ -84,10 +95,10 @@ class MyBuildAnimatedText extends StatelessWidget {
               TyperAnimatedText('chat app with dark and light theme'),
             ],
           ),
-          SizedBox(
+          if(!Responsive.isMobileLarge(context)) SizedBox(
             width: defaultPadding / 2,
           ),
-          FlutterCodedText(),
+          if(!Responsive.isMobileLarge(context)) FlutterCodedText(),
         ],
       ),
     );
