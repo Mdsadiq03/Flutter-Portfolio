@@ -36,7 +36,7 @@ class MainScreen extends StatelessWidget {
                   child: SideMenu(),
                 ),
               SizedBox(
-                width: defaultPadding,
+                width: defaultPadding ,
               ),
               Expanded(
                 flex: 7,
@@ -45,6 +45,9 @@ class MainScreen extends StatelessWidget {
                     children: [...children],
                   ),
                 ),
+              ),
+              SizedBox(
+                width: defaultPadding / 2,
               ),
             ],
           ),
