@@ -47,7 +47,7 @@ class MainScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: defaultPadding / 2,
+                width: defaultPadding ,
               ),
             ],
           ),
