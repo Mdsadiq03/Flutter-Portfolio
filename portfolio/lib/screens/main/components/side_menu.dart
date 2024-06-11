@@ -7,11 +7,17 @@ import 'package:portfolio/screens/main/components/knowlwdges.dart';
 import 'package:portfolio/screens/main/components/my_info.dart';
 import 'package:portfolio/screens/main/components/skills.dart';
 
-class SideMenu extends StatelessWidget {
+class SideMenu extends StatefulWidget {
   const SideMenu({
     super.key,
   });
 
+  @override
+  State<SideMenu> createState() => _SideMenuState();
+}
+
+class _SideMenuState extends State<SideMenu> {
+  
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -71,7 +77,8 @@ class SideMenu extends StatelessWidget {
                           Spacer(),
                           IconButton(
                             onPressed: () {},
-                            icon: SvgPicture.asset('assets/icons/linkedin.svg'),
+                            icon:
+                                SvgPicture.asset('assets/icons/linkedin.svg'),
                           ),
                           IconButton(
                             onPressed: () {},
@@ -79,7 +86,8 @@ class SideMenu extends StatelessWidget {
                           ),
                           IconButton(
                             onPressed: () {},
-                            icon: SvgPicture.asset('assets/icons/twitter.svg'),
+                            icon:
+                                SvgPicture.asset('assets/icons/twitter.svg'),
                           ),
                           Spacer(),
                         ],
