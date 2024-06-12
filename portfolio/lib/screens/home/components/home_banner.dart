@@ -90,9 +90,9 @@ class MyBuildAnimatedText extends StatelessWidget {
           Text('I build '),
           AnimatedTextKit(
             animatedTexts: [
-              TyperAnimatedText('responsive web and mobile app'),
-              TyperAnimatedText('e-Commerce app UI'),
-              TyperAnimatedText('chat app with dark and light theme'),
+              TyperAnimatedText('Shopping list with Firebase Realtime Database'),
+              TyperAnimatedText('Food delivery app shows flutter UI'),
+              TyperAnimatedText('Expense Tracker app with dark and light theme'),
             ],
           ),
           if(!Responsive.isMobileLarge(context)) SizedBox(
