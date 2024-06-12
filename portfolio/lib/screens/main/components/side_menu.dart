@@ -17,6 +17,13 @@ class SideMenu extends StatefulWidget {
 }
 
 class _SideMenuState extends State<SideMenu> {
+  final ScrollController _scrollController = ScrollController();
+
+  void _onVerticalDragUpdate(DragUpdateDetails details) {
+    _scrollController.position.moveTo(
+      _scrollController.position.pixels - details.delta.dy,
+    );
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -26,74 +33,78 @@ class _SideMenuState extends State<SideMenu> {
           children: [
             const MyInfo(),
             Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(defaultPadding),
-                child: Column(
-                  children: [
-                    const AreaInfoText(
-                      title: 'Residence',
-                      text: 'Tamilnadu',
-                    ),
-                    const AreaInfoText(
-                      title: 'City',
-                      text: 'Tenkasi',
-                    ),
-                    const AreaInfoText(
-                      title: 'Age',
-                      text: '20',
-                    ),
-                    const Skills(),
-                    SizedBox(
-                      height: defaultPadding,
-                    ),
-                    Coding(),
-                    Knowledges(),
-                    Divider(),
-                    SizedBox(
-                      height: defaultPadding / 2,
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: FittedBox(
+              child: GestureDetector(
+                onVerticalDragUpdate: _onVerticalDragUpdate,
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  padding: const EdgeInsets.all(defaultPadding),
+                  child: Column(
+                    children: [
+                      const AreaInfoText(
+                        title: 'Residence',
+                        text: 'Tamilnadu',
+                      ),
+                      const AreaInfoText(
+                        title: 'City',
+                        text: 'Tenkasi',
+                      ),
+                      const AreaInfoText(
+                        title: 'Age',
+                        text: '20',
+                      ),
+                      const Skills(),
+                      SizedBox(
+                        height: defaultPadding,
+                      ),
+                      Coding(),
+                      Knowledges(),
+                      Divider(),
+                      SizedBox(
+                        height: defaultPadding / 2,
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: FittedBox(
+                          child: Row(
+                            children: [
+                              Text(
+                                'DOWNLOAD CV',
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
+                              SizedBox(
+                                width: defaultPadding / 2,
+                              ),
+                              SvgPicture.asset('assets/icons/download.svg')
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: defaultPadding),
+                        color: Color(0XEE24242E),
                         child: Row(
                           children: [
-                            Text(
-                              'DOWNLOAD CV',
-                              style: Theme.of(context).textTheme.bodyMedium,
+                            Spacer(),
+                            IconButton(
+                              onPressed: () {},
+                              icon:
+                                  SvgPicture.asset('assets/icons/linkedin.svg'),
                             ),
-                            SizedBox(
-                              width: defaultPadding / 2,
+                            IconButton(
+                              onPressed: () {},
+                              icon: SvgPicture.asset('assets/icons/github.svg'),
                             ),
-                            SvgPicture.asset('assets/icons/download.svg')
+                            IconButton(
+                              onPressed: () {},
+                              icon:
+                                  SvgPicture.asset('assets/icons/twitter.svg'),
+                            ),
+                            Spacer(),
                           ],
                         ),
                       ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: defaultPadding),
-                      color: Color(0XEE24242E),
-                      child: Row(
-                        children: [
-                          Spacer(),
-                          IconButton(
-                            onPressed: () {},
-                            icon:
-                                SvgPicture.asset('assets/icons/linkedin.svg'),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: SvgPicture.asset('assets/icons/github.svg'),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon:
-                                SvgPicture.asset('assets/icons/twitter.svg'),
-                          ),
-                          Spacer(),
-                        ],
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

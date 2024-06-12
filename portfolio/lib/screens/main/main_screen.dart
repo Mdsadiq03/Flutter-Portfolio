@@ -3,10 +3,23 @@ import 'package:portfolio/constants.dart';
 import 'package:portfolio/responsive.dart';
 import 'package:portfolio/screens/main/components/side_menu.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({Key? key, required this.children}) : super(key: key);
 
   final List<Widget> children;
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  final ScrollController _scrollController = ScrollController();
+
+  void _onVerticalDragUpdate(DragUpdateDetails details) {
+    _scrollController.position.moveTo(
+      _scrollController.position.pixels - details.delta.dy,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +53,13 @@ class MainScreen extends StatelessWidget {
               ),
               Expanded(
                 flex: 7,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [...children],
+                child: GestureDetector(
+                  onVerticalDragUpdate: _onVerticalDragUpdate,
+                  child: SingleChildScrollView(
+                    controller: _scrollController,
+                    child: Column(
+                      children: [...widget.children],
+                    ),
                   ),
                 ),
               ),
