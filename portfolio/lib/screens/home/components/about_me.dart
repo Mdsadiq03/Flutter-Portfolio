@@ -1,16 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
 
-class ScoopOnMe extends StatelessWidget {
-  const ScoopOnMe({
-    super.key,
-  });
+class ScoopOnMe extends StatefulWidget {
+  const ScoopOnMe({super.key});
+
+  @override
+  _ScoopOnMeState createState() => _ScoopOnMeState();
+}
+
+class _ScoopOnMeState extends State<ScoopOnMe> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<Offset> _offsetAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    );
+
+    _offsetAnimation = Tween<Offset>(
+      begin: Offset(0, 1), // Start from bottom
+      end: Offset(0, 0), // End at original position
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    ));
+
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const SizedBox(height: defaultPadding,),
         Text(
           'The Scoop on Me',
           style: Theme.of(context).textTheme.headlineSmall,
@@ -28,10 +60,16 @@ class ScoopOnMe extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Flexible(
-                child: Text(
-                  "Enthusiastic Flutter Developer driven by a passion for crafting seamless mobile experiences. Equipped with a solid foundation in programming and dedicated to mastering Dart & Flutter for cross-platform app development. Excited by Flutter's widget-based architecture and committed to refining skills through continuous learning. Actively seeking collaborative opportunities within the vibrant Flutter developer community.",
-                  style: TextStyle(fontSize: 16),
+              Expanded(
+                child: ClipRect(
+                  child: SlideTransition(
+                    position: _offsetAnimation,
+                    child: Text(
+                      "Enthusiastic Flutter Developer driven by a passion for crafting seamless mobile experiences. Equipped with a solid foundation in programming and dedicated to mastering Dart & Flutter for cross-platform app development. Excited by Flutter's widget-based architecture and committed to refining skills through continuous learning. Actively seeking collaborative opportunities within the vibrant Flutter developer community.",
+                      style: TextStyle(fontSize: 16),
+                      textAlign: TextAlign.start, // Align text to the start
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(width: 16), // Add spacing between text and image
