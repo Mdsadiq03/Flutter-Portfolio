@@ -23,25 +23,25 @@ class MyEducation extends StatelessWidget {
         ),
         EducationList(
           heading: 'BE - Computer Science Engineering',
-          institute: 'Government College of Engineering Srirangam, Trichy',
+          institute: 'Government College of Engineering Srirangam, Trichy\nPresent',
           percentage: '80%',
         ),
         SizedBox(height: defaultPadding),
         Padding(
           padding: const EdgeInsets.only(left: 200),
           child: EducationList(
-            heading: 'BE - Computer Science Engineering',
-            institute: 'Government College of Engineering Srirangam, Trichy',
-            percentage: '80%',
+            heading: 'HSC - Higher Secondary School Certificate',
+            institute: 'Infant Jesus Matric Hr Sec School, Tirupur\n2021',
+            percentage: '92%',
           ),
         ),
         SizedBox(height: defaultPadding),
         Padding(
           padding: const EdgeInsets.only(left: 400),
           child: EducationList(
-            heading: 'BE - Computer Science Engineering',
-            institute: 'Government College of Engineering Srirangam, Trichy',
-            percentage: '80%',
+            heading: 'SSLC - Secondary School Leaving Certificate',
+            institute: "St. Joseph's Matric Hr Sec School, Tirupur\n2019",
+            percentage: '93%',
           ),
         ),
       ],
