@@ -21,10 +21,13 @@ class MyEducation extends StatelessWidget {
         const SizedBox(
           height: defaultPadding,
         ),
-        EducationList(
-          heading: 'BE - Computer Science Engineering',
-          institute: 'Government College of Engineering Srirangam, Trichy\nPresent',
-          percentage: '80%',
+        Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: EducationList(
+            heading: 'BE - Computer Science Engineering',
+            institute: 'Government College of Engineering Srirangam, Trichy\nPresent',
+            percentage: '80%',
+          ),
         ),
         SizedBox(height: defaultPadding),
         Padding(
@@ -49,7 +52,7 @@ class MyEducation extends StatelessWidget {
   }
 }
 
-class EducationList extends StatelessWidget {
+class EducationList extends StatefulWidget {
   const EducationList({
     super.key,
     required this.heading,
@@ -62,32 +65,64 @@ class EducationList extends StatelessWidget {
   final String percentage;
 
   @override
+  _EducationListState createState() => _EducationListState();
+}
+
+class _EducationListState extends State<EducationList> {
+  bool _isHovered = false;
+
+  @override
   Widget build(BuildContext context) {
     return Row(
-      //mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          padding: const EdgeInsets.all(defaultPadding),
-          color: secondaryColor,
-          width: 500,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                heading,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              const SizedBox(
-                height: defaultPadding / 2,
-              ),
-              Text(institute),
-            ],
+        MouseRegion(
+          onEnter: (_) {
+            setState(() {
+              _isHovered = true;
+            });
+          },
+          onExit: (_) {
+            setState(() {
+              _isHovered = false;
+            });
+          },
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            padding: const EdgeInsets.all(defaultPadding),
+            decoration: BoxDecoration(
+              color: secondaryColor,
+              boxShadow: _isHovered
+                  ? [
+                      BoxShadow(
+                        color: primaryColor,
+                        blurRadius: 10.0,
+                        offset: Offset(0, 5),
+                      )
+                    ]
+                  : [],
+            ),
+            width: 500,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  widget.heading,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const SizedBox(
+                  height: defaultPadding / 2,
+                ),
+                Text(widget.institute),
+              ],
+            ),
           ),
         ),
         SizedBox(
           width: defaultPadding,
         ),
-        Container(
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          margin: EdgeInsets.only(left: _isHovered ? 10.0 : 0.0),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
@@ -99,7 +134,7 @@ class EducationList extends StatelessWidget {
             radius: 40,
             backgroundColor: secondaryColor,
             child: Text(
-              percentage,
+              widget.percentage,
               style: TextStyle(
                 color: primaryColor,
               ),
