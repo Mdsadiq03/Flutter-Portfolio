@@ -21,35 +21,91 @@ class MyEducation extends StatelessWidget {
         const SizedBox(
           height: defaultPadding,
         ),
-        Row(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(defaultPadding),
-              color: secondaryColor,
-              width: 500,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'BE - Computer Science Engineering',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  const SizedBox(
-                    height: defaultPadding / 2,
-                  ),
-                  Text('Government College Of Engineering Srirangam, Trichy'),
-                ],
+        EducationList(
+          heading: 'BE - Computer Science Engineering',
+          institute: 'Government College of Engineering Srirangam, Trichy',
+          percentage: '80%',
+        ),
+        SizedBox(height: defaultPadding),
+        Padding(
+          padding: const EdgeInsets.only(left: 200),
+          child: EducationList(
+            heading: 'BE - Computer Science Engineering',
+            institute: 'Government College of Engineering Srirangam, Trichy',
+            percentage: '80%',
+          ),
+        ),
+        SizedBox(height: defaultPadding),
+        Padding(
+          padding: const EdgeInsets.only(left: 400),
+          child: EducationList(
+            heading: 'BE - Computer Science Engineering',
+            institute: 'Government College of Engineering Srirangam, Trichy',
+            percentage: '80%',
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class EducationList extends StatelessWidget {
+  const EducationList({
+    super.key,
+    required this.heading,
+    required this.institute,
+    required this.percentage,
+  });
+
+  final String heading;
+  final String institute;
+  final String percentage;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      //mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(defaultPadding),
+          color: secondaryColor,
+          width: 500,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                heading,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
+              const SizedBox(
+                height: defaultPadding / 2,
+              ),
+              Text(institute),
+            ],
+          ),
+        ),
+        SizedBox(
+          width: defaultPadding,
+        ),
+        Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: primaryColor,
+              width: 4.0,
             ),
-            SizedBox(
-              width: defaultPadding,
+          ),
+          child: CircleAvatar(
+            radius: 40,
+            backgroundColor: secondaryColor,
+            child: Text(
+              percentage,
+              style: TextStyle(
+                color: primaryColor,
+              ),
+              textAlign: TextAlign.center,
             ),
-            CircleAvatar(
-              radius: 50,
-              backgroundColor: secondaryColor,
-              child: Text('80%',style: TextStyle(color: primaryColor),),
-            ),
-          ],
+          ),
         ),
       ],
     );
