@@ -42,21 +42,21 @@ class _MyCertificatesState extends State<MyCertificates> {
         const SizedBox(height: defaultPadding),
         GestureDetector(
           onHorizontalDragStart: _onHorizontalDragStart,
-            onHorizontalDragUpdate: _onHorizontalDragUpdate,
+          onHorizontalDragUpdate: _onHorizontalDragUpdate,
           child: SingleChildScrollView(
             controller: _scrollController,
             scrollDirection: Axis.horizontal,
             child: const Row(
               children: [
-                AddCertificate(image: 'assets/certi/flutter.jpg',),
+                AddCertificate(image: 'assets/certi/flutter.jpg'),
                 SizedBox(width: defaultPadding),
-                AddCertificate(image: 'assets/certi/nndl.png',),
+                AddCertificate(image: 'assets/certi/nndl.png'),
                 SizedBox(width: defaultPadding),
-                AddCertificate(image: 'assets/certi/ml.jpg',),
+                AddCertificate(image: 'assets/certi/ml.jpg'),
                 SizedBox(width: defaultPadding),
-                AddCertificate(image: 'assets/certi/aitool.jpg',),
+                AddCertificate(image: 'assets/certi/aitool.jpg'),
                 SizedBox(width: defaultPadding),
-                AddCertificate(image: 'assets/certi/tableau.jpg',),
+                AddCertificate(image: 'assets/certi/tableau.jpg'),
               ],
             ),
           ),
@@ -66,28 +66,60 @@ class _MyCertificatesState extends State<MyCertificates> {
   }
 }
 
-class AddCertificate extends StatelessWidget {
+class AddCertificate extends StatefulWidget {
   const AddCertificate({
-    super.key, required this.image,
+    super.key,
+    required this.image,
   });
 
   final String image;
 
   @override
+  State<AddCertificate> createState() => _AddCertificateState();
+}
+
+class _AddCertificateState extends State<AddCertificate> {
+  bool _isHovered = false;
+
+  @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(10),
-              child: Container(
-                width: 400,
-                height: 270,
-                child: Opacity(
-                  opacity: 0.8, // Set the desired opacity value here
-                  child: Image.asset(
-                    image,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
+    return MouseRegion(
+      onEnter: (_) {
+        setState(() {
+          _isHovered = true;
+        });
+      },
+      onExit: (_) {
+        setState(() {
+          _isHovered = false;
+        });
+      },
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          width: 400,
+          height: 270,
+          decoration: BoxDecoration(
+            boxShadow: _isHovered
+                ? [
+                    BoxShadow(
+                      color: Colors.white.withOpacity(0.6),
+                      spreadRadius: 3,
+                      blurRadius: 5,
+                      offset: Offset(0, 3),
+                    ),
+                  ]
+                : [],
+          ),
+          child: Opacity(
+            opacity: 0.8, // Set the desired opacity value here
+            child: Image.asset(
+              widget.image,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

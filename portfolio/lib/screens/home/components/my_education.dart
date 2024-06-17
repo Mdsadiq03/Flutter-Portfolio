@@ -93,7 +93,7 @@ class _EducationListState extends State<EducationList> {
               color: secondaryColor,
               boxShadow: _isHovered
                   ? [
-                      BoxShadow(
+                      BoxShadow (
                         color: primaryColor,
                         blurRadius: 10.0,
                         offset: Offset(0, 5),
