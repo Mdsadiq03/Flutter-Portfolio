@@ -6,6 +6,7 @@ import 'package:portfolio/screens/main/components/coding.dart';
 import 'package:portfolio/screens/main/components/knowlwdges.dart';
 import 'package:portfolio/screens/main/components/my_info.dart';
 import 'package:portfolio/screens/main/components/skills.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({
@@ -79,30 +80,7 @@ class _SideMenuState extends State<SideMenu> {
                           ),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: defaultPadding),
-                        color: Color(0XEE24242E),
-                        child: Row(
-                          children: [
-                            Spacer(),
-                            IconButton(
-                              onPressed: () {},
-                              icon:
-                                  SvgPicture.asset('assets/icons/linkedin.svg'),
-                            ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: SvgPicture.asset('assets/icons/github.svg'),
-                            ),
-                            IconButton(
-                              onPressed: () {},
-                              icon:
-                                  SvgPicture.asset('assets/icons/twitter.svg'),
-                            ),
-                            Spacer(),
-                          ],
-                        ),
-                      ),
+                      const Link(),
                     ],
                   ),
                 ),
@@ -110,6 +88,49 @@ class _SideMenuState extends State<SideMenu> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Link extends StatelessWidget {
+  const Link({
+    super.key,
+  });
+
+  void _launchURL(String url) async {
+    Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: defaultPadding),
+      color: Color(0XEE24242E),
+      child: Row(
+        children: [
+          Spacer(),
+          IconButton(
+            onPressed: () => _launchURL('https://www.linkedin.com/in/mohamed-sadiq-m/'),
+            icon:
+                SvgPicture.asset('assets/icons/linkedin.svg'),
+          ),
+          IconButton(
+            onPressed: () => _launchURL('https://github.com/Mdsadiq03'),
+            icon: SvgPicture.asset('assets/icons/github.svg'),
+          ),
+          IconButton(
+            onPressed: () => _launchURL('https://x.com/MohamedSadiq2k3'),
+            icon:
+                SvgPicture.asset('assets/icons/twitter.svg'),
+          ),
+          Spacer(),
+        ],
       ),
     );
   }
