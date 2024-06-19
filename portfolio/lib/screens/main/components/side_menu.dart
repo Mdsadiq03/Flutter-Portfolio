@@ -64,12 +64,20 @@ class _SideMenuState extends State<SideMenu> {
                         height: defaultPadding / 2,
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          const url = '/assets/resume/MyResume.pdf';
+                          Uri uri = Uri.parse(url);
+                          if (await canLaunchUrl(uri)){
+                            await launchUrl(uri);
+                          }else{
+                            throw 'Could not launch $url';
+                          }
+                        },
                         child: FittedBox(
                           child: Row(
                             children: [
                               Text(
-                                'DOWNLOAD CV',
+                                'OPEN RESUME',
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
                               SizedBox(
@@ -93,11 +101,16 @@ class _SideMenuState extends State<SideMenu> {
   }
 }
 
-class Link extends StatelessWidget {
+class Link extends StatefulWidget {
   const Link({
     super.key,
   });
 
+  @override
+  State<Link> createState() => _LinkState();
+}
+
+class _LinkState extends State<Link> {
   void _launchURL(String url) async {
     Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
