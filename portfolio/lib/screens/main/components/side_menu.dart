@@ -1,3 +1,4 @@
+import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/constants.dart';
@@ -25,7 +26,7 @@ class _SideMenuState extends State<SideMenu> {
       _scrollController.position.pixels - details.delta.dy,
     );
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -64,14 +65,8 @@ class _SideMenuState extends State<SideMenu> {
                         height: defaultPadding / 2,
                       ),
                       TextButton(
-                        onPressed: () async {
-                          const url = '/assets/resume/MyResume.pdf';
-                          Uri uri = Uri.parse(url);
-                          if (await canLaunchUrl(uri)){
-                            await launchUrl(uri);
-                          }else{
-                            throw 'Could not launch $url';
-                          }
+                        onPressed: () {
+                          html.window.open('assets/resume/MyResume.pdf', 'Resume');
                         },
                         child: FittedBox(
                           child: Row(
@@ -129,9 +124,9 @@ class _LinkState extends State<Link> {
         children: [
           Spacer(),
           IconButton(
-            onPressed: () => _launchURL('https://www.linkedin.com/in/mohamed-sadiq-m/'),
-            icon:
-                SvgPicture.asset('assets/icons/linkedin.svg'),
+            onPressed: () =>
+                _launchURL('https://www.linkedin.com/in/mohamed-sadiq-m/'),
+            icon: SvgPicture.asset('assets/icons/linkedin.svg'),
           ),
           IconButton(
             onPressed: () => _launchURL('https://github.com/Mdsadiq03'),
@@ -139,8 +134,7 @@ class _LinkState extends State<Link> {
           ),
           IconButton(
             onPressed: () => _launchURL('https://x.com/MohamedSadiq2k3'),
-            icon:
-                SvgPicture.asset('assets/icons/twitter.svg'),
+            icon: SvgPicture.asset('assets/icons/twitter.svg'),
           ),
           Spacer(),
         ],
