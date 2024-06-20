@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/models/Project.dart';
 import 'package:portfolio/responsive.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProjectCard extends StatefulWidget {
   const ProjectCard({
@@ -22,6 +23,15 @@ class _ProjectCardState extends State<ProjectCard> {
     setState(() {
       _isHovering = isHovering;
     });
+  }
+
+  void _launchURL(String url) async {
+    Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 
   @override
@@ -58,7 +68,11 @@ class _ProjectCardState extends State<ProjectCard> {
             ),
             const Spacer(),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                if (widget.project.url != null) {
+                  _launchURL(widget.project.url!);
+                }
+              },
               child: const Text(
                 'Explore >>',
                 style: TextStyle(color: primaryColor),
