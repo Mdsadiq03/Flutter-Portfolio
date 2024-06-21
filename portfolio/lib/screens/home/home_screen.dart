@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MainScreen(
+    return const MainScreen(
       children: [
         HomeBanner(),
         HighlightsInfo(),
@@ -22,6 +22,7 @@ class HomeScreen extends StatelessWidget {
         MyEducation(),
         MyCertificates(),
         Recommendations(),
+        
       ],
     );
   }

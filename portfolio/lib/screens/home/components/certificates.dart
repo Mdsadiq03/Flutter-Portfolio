@@ -60,7 +60,8 @@ class _MyCertificatesState extends State<MyCertificates> {
               ],
             ),
           ),
-        )
+        ),
+       SizedBox(height: defaultPadding),
       ],
     );
   }
