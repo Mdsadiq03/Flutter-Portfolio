@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
+import 'package:portfolio/responsive.dart';
 
 class MyEducation extends StatelessWidget {
   const MyEducation({
@@ -8,47 +9,91 @@ class MyEducation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(
-          height: defaultPadding,
-        ),
-        Text(
-          'Education',
-          style: Theme.of(context).textTheme.headlineSmall,
-        ),
-        const SizedBox(
-          height: defaultPadding,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: EducationList(
-            heading: 'BE - Computer Science Engineering',
-            institute: 'Government College of Engineering Srirangam, Trichy\nPresent',
-            percentage: '80%',
-          ),
-        ),
-        SizedBox(height: defaultPadding),
-        Padding(
-          padding: const EdgeInsets.only(left: 200),
-          child: EducationList(
-            heading: 'HSC - Higher Secondary School Certificate',
-            institute: 'Infant Jesus Matric Hr Sec School, Tirupur\n2021',
-            percentage: '92%',
-          ),
-        ),
-        SizedBox(height: defaultPadding),
-        Padding(
-          padding: const EdgeInsets.only(left: 400),
-          child: EducationList(
-            heading: 'SSLC - Secondary School Leaving Certificate',
-            institute: "St. Joseph's Matric Hr Sec School, Tirupur\n2019",
-            percentage: '93%',
-          ),
-        ),
-      ],
-    );
+    return Responsive.isAdjustment1(context)
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: defaultPadding,
+              ),
+              Text(
+                'Education',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              const SizedBox(
+                height: defaultPadding,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: EducationList(
+                  heading: 'BE - Computer Science Engineering',
+                  institute:
+                      'Government College of Engineering Srirangam, Trichy\nPresent',
+                  percentage: '80%',
+                ),
+              ),
+              SizedBox(height: defaultPadding),
+              Padding(
+                padding: const EdgeInsets.only(left: 200),
+                child: EducationList(
+                  heading: 'HSC - Higher Secondary School Certificate',
+                  institute: 'Infant Jesus Matric Hr Sec School, Tirupur\n2021',
+                  percentage: '92%',
+                ),
+              ),
+              SizedBox(height: defaultPadding),
+              Padding(
+                padding: const EdgeInsets.only(left: 400),
+                child: EducationList(
+                  heading: 'SSLC - Secondary School Leaving Certificate',
+                  institute: "St. Joseph's Matric Hr Sec School, Tirupur\n2019",
+                  percentage: '93%',
+                ),
+              ),
+            ],
+          )
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: defaultPadding,
+              ),
+              Text(
+                'Education',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              const SizedBox(
+                height: defaultPadding,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: EducationList(
+                  heading: 'BE - Computer Science Engineering',
+                  institute:
+                      'Government College of Engineering Srirangam, Trichy\nPresent',
+                  percentage: '80%',
+                ),
+              ),
+              SizedBox(height: defaultPadding),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: EducationList(
+                  heading: 'HSC - Higher Secondary School Certificate',
+                  institute: 'Infant Jesus Matric Hr Sec School, Tirupur\n2021',
+                  percentage: '92%',
+                ),
+              ),
+              SizedBox(height: defaultPadding),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: EducationList(
+                  heading: 'SSLC - Secondary School Leaving Certificate',
+                  institute: "St. Joseph's Matric Hr Sec School, Tirupur\n2019",
+                  percentage: '93%',
+                ),
+              ),
+            ],
+          );
   }
 }
 
@@ -93,7 +138,7 @@ class _EducationListState extends State<EducationList> {
               color: secondaryColor,
               boxShadow: _isHovered
                   ? [
-                      BoxShadow (
+                      BoxShadow(
                         color: primaryColor,
                         blurRadius: 10.0,
                         offset: Offset(0, 5),

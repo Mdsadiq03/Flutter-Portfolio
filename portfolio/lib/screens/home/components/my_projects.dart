@@ -56,7 +56,7 @@ class _MyProjectState extends State<MyProject> with TickerProviderStateMixin {
                 visibleIndexes: _visibleIndexes,
               ),
               tablet: ProjectGridView(
-                childAspectRatio: 1.1,
+                childAspectRatio: 1,
                 visibleIndexes: _visibleIndexes,
               ),
             ),
@@ -82,7 +82,7 @@ class ProjectGridView extends StatelessWidget {
     super.key,
     required this.visibleIndexes,
     this.crossAxisCount = 3,
-    this.childAspectRatio = 1.3,
+    this.childAspectRatio = 1.2,
   });
 
   final List<int> visibleIndexes;
