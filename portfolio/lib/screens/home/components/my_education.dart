@@ -76,7 +76,7 @@ class MyEducation extends StatelessWidget {
               ),
               SizedBox(height: defaultPadding),
               Padding(
-                padding: const EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 150),
                 child: EducationList(
                   heading: 'HSC - Higher Secondary School Certificate',
                   institute: 'Infant Jesus Matric Hr Sec School, Tirupur\n2021',
@@ -85,7 +85,7 @@ class MyEducation extends StatelessWidget {
               ),
               SizedBox(height: defaultPadding),
               Padding(
-                padding: const EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 350),
                 child: EducationList(
                   heading: 'SSLC - Secondary School Leaving Certificate',
                   institute: "St. Joseph's Matric Hr Sec School, Tirupur\n2019",
