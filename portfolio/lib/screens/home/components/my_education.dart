@@ -9,91 +9,88 @@ class MyEducation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Responsive.isAdjustment1(context)
-        ? Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: defaultPadding,
-              ),
-              Text(
-                'Education',
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              const SizedBox(
-                height: defaultPadding,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: EducationList(
-                  heading: 'BE - Computer Science Engineering',
-                  institute:
-                      'Government College of Engineering Srirangam, Trichy\nPresent',
-                  percentage: '80%',
-                ),
-              ),
-              SizedBox(height: defaultPadding),
-              Padding(
-                padding: const EdgeInsets.only(left: 200),
-                child: EducationList(
-                  heading: 'HSC - Higher Secondary School Certificate',
-                  institute: 'Infant Jesus Matric Hr Sec School, Tirupur\n2021',
-                  percentage: '92%',
-                ),
-              ),
-              SizedBox(height: defaultPadding),
-              Padding(
-                padding: const EdgeInsets.only(left: 400),
-                child: EducationList(
-                  heading: 'SSLC - Secondary School Leaving Certificate',
-                  institute: "St. Joseph's Matric Hr Sec School, Tirupur\n2019",
-                  percentage: '93%',
-                ),
-              ),
-            ],
-          )
-        : Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: defaultPadding,
-              ),
-              Text(
-                'Education',
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              const SizedBox(
-                height: defaultPadding,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: EducationList(
-                  heading: 'BE - Computer Science Engineering',
-                  institute:
-                      'Government College of Engineering Srirangam, Trichy\nPresent',
-                  percentage: '80%',
-                ),
-              ),
-              SizedBox(height: defaultPadding),
-              Padding(
-                padding: const EdgeInsets.only(left: 150),
-                child: EducationList(
-                  heading: 'HSC - Higher Secondary School Certificate',
-                  institute: 'Infant Jesus Matric Hr Sec School, Tirupur\n2021',
-                  percentage: '92%',
-                ),
-              ),
-              SizedBox(height: defaultPadding),
-              Padding(
-                padding: const EdgeInsets.only(left: 350),
-                child: EducationList(
-                  heading: 'SSLC - Secondary School Leaving Certificate',
-                  institute: "St. Joseph's Matric Hr Sec School, Tirupur\n2019",
-                  percentage: '93%',
-                ),
-              ),
-            ],
-          );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(
+          height: defaultPadding,
+        ),
+        Text(
+          'Education',
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
+        const SizedBox(
+          height: defaultPadding,
+        ),
+        // if (Responsive.isMobile(context)) const EducationListInfo(padValue1: 10, padValue2: 10, padValue3: 10),
+        // if (Responsive.isMobileLarge(context)) const EducationListInfo(padValue1: 10, padValue2: 50, padValue3: 100),
+        // if (Responsive.isTablet(context)) const EducationListInfo(padValue1: 10, padValue2: 100, padValue3: 200),
+        // if (Responsive.isDesktop(context)) const EducationListInfo(padValue1: 10, padValue2: 200, padValue3: 400),
+        Responsive(
+          mobile: EducationListInfo(
+            padValue1: 10,
+            padValue2: 10,
+            padValue3: 10,
+          ),
+          adjustment1: EducationListInfo(padValue1: 10, padValue2: 150, padValue3: 350),
+          adjustment2: EducationListInfo(padValue1: 10, padValue2: 100, padValue3: 300),
+          desktop: EducationListInfo(
+            padValue1: 10,
+            padValue2: 200,
+            padValue3: 400,
+          ),
+          
+        ),
+      ],
+    );
+  }
+}
+
+class EducationListInfo extends StatelessWidget {
+  const EducationListInfo({
+    super.key,
+    required this.padValue1,
+    required this.padValue2,
+    required this.padValue3,
+  });
+
+  final double padValue1;
+  final double padValue2;
+  final double padValue3;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: padValue1),
+          child: EducationList(
+            heading: 'BE - Computer Science Engineering',
+            institute:
+                'Government College of Engineering Srirangam, Trichy\nPresent',
+            percentage: '80%',
+          ),
+        ),
+        SizedBox(height: defaultPadding),
+        Padding(
+          padding: EdgeInsets.only(left: padValue2),
+          child: EducationList(
+            heading: 'HSC - Higher Secondary School Certificate',
+            institute: 'Infant Jesus Matric Hr Sec School, Tirupur\n2021',
+            percentage: '92%',
+          ),
+        ),
+        SizedBox(height: defaultPadding),
+        Padding(
+          padding: EdgeInsets.only(left: padValue3),
+          child: EducationList(
+            heading: 'SSLC - Secondary School Leaving Certificate',
+            institute: "St. Joseph's Matric Hr Sec School, Tirupur\n2019",
+            percentage: '93%',
+          ),
+        ),
+      ],
+    );
   }
 }
 
@@ -191,3 +188,48 @@ class _EducationListState extends State<EducationList> {
     );
   }
 }
+
+
+
+// Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               const SizedBox(
+//                 height: defaultPadding,
+//               ),
+//               Text(
+//                 'Education',
+//                 style: Theme.of(context).textTheme.headlineSmall,
+//               ),
+//               const SizedBox(
+//                 height: defaultPadding,
+//               ),
+//               Padding(
+//                 padding: const EdgeInsets.only(left: 10),
+//                 child: EducationList(
+//                   heading: 'BE - Computer Science Engineering',
+//                   institute:
+//                       'Government College of Engineering Srirangam, Trichy\nPresent',
+//                   percentage: '80%',
+//                 ),
+//               ),
+//               SizedBox(height: defaultPadding),
+//               Padding(
+//                 padding: const EdgeInsets.only(left: 200),
+//                 child: EducationList(
+//                   heading: 'HSC - Higher Secondary School Certificate',
+//                   institute: 'Infant Jesus Matric Hr Sec School, Tirupur\n2021',
+//                   percentage: '92%',
+//                 ),
+//               ),
+//               SizedBox(height: defaultPadding),
+//               Padding(
+//                 padding: const EdgeInsets.only(left: 400),
+//                 child: EducationList(
+//                   heading: 'SSLC - Secondary School Leaving Certificate',
+//                   institute: "St. Joseph's Matric Hr Sec School, Tirupur\n2019",
+//                   percentage: '93%',
+//                 ),
+//               ),
+//             ],
+//           )
