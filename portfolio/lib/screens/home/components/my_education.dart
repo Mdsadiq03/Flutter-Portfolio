@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/responsive.dart';
+import 'package:portfolio/responsive_edu.dart';
 
 class MyEducation extends StatelessWidget {
   const MyEducation({
@@ -22,25 +22,25 @@ class MyEducation extends StatelessWidget {
         const SizedBox(
           height: defaultPadding,
         ),
-        // if (Responsive.isMobile(context)) const EducationListInfo(padValue1: 10, padValue2: 10, padValue3: 10),
-        // if (Responsive.isMobileLarge(context)) const EducationListInfo(padValue1: 10, padValue2: 50, padValue3: 100),
-        // if (Responsive.isTablet(context)) const EducationListInfo(padValue1: 10, padValue2: 100, padValue3: 200),
-        // if (Responsive.isDesktop(context)) const EducationListInfo(padValue1: 10, padValue2: 200, padValue3: 400),
-        Responsive(
-          mobile: EducationListInfo(
-            padValue1: 10,
-            padValue2: 10,
-            padValue3: 10,
-          ),
-          adjustment1: EducationListInfo(padValue1: 10, padValue2: 150, padValue3: 350),
-          adjustment2: EducationListInfo(padValue1: 10, padValue2: 100, padValue3: 300),
-          desktop: EducationListInfo(
-            padValue1: 10,
-            padValue2: 200,
-            padValue3: 400,
-          ),
-          
+       EduResponsive(
+          desktop:
+              EducationListInfo(padValue1: 10, padValue2: 200, padValue3: 400),
+          desktop1M:
+              EducationListInfo(padValue1: 10, padValue2: 150, padValue3: 350),
+          desktop2M:
+              EducationListInfo(padValue1: 10, padValue2: 100, padValue3: 250),
+          tablet1M: 
+              EducationListInfo(padValue1: 10, padValue2: 80, padValue3: 170),  
+          tablet: 
+              EducationListInfo(padValue1: 10, padValue2: 150, padValue3: 350),
+          tablet11M: 
+              EducationListInfo(padValue1: 10, padValue2: 80, padValue3: 170),  
+          mobileLarge: 
+              EducationListInfo(padValue1: 10, padValue2: 10, padValue3: 10), 
+          mobileLarge1M: Text("Hi MobileLarge"), 
+          mobile: Text("Hi Mobile"),                
         ),
+        
       ],
     );
   }
