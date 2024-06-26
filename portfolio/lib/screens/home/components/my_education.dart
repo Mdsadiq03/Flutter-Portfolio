@@ -22,25 +22,43 @@ class MyEducation extends StatelessWidget {
         const SizedBox(
           height: defaultPadding,
         ),
-       EduResponsive(
+        EduResponsive(
           desktop:
               EducationListInfo(padValue1: 10, padValue2: 200, padValue3: 400),
           desktop1M:
               EducationListInfo(padValue1: 10, padValue2: 150, padValue3: 350),
           desktop2M:
               EducationListInfo(padValue1: 10, padValue2: 100, padValue3: 250),
-          tablet1M: 
-              EducationListInfo(padValue1: 10, padValue2: 80, padValue3: 170),  
-          tablet: 
+          tablet1M:
+              EducationListInfo(padValue1: 10, padValue2: 80, padValue3: 170),
+          tablet:
               EducationListInfo(padValue1: 10, padValue2: 150, padValue3: 350),
-          tablet11M: 
-              EducationListInfo(padValue1: 10, padValue2: 80, padValue3: 170),  
-          mobileLarge: 
-              EducationListInfo(padValue1: 10, padValue2: 10, padValue3: 10), 
-          mobileLarge1M: Text("Hi MobileLarge"), 
-          mobile: Text("Hi Mobile"),                
+          tablet11M:
+              EducationListInfo(padValue1: 10, padValue2: 80, padValue3: 170),
+          mobileLarge:
+              EducationListInfo(padValue1: 10, padValue2: 10, padValue3: 10),
+          mobileLarge1M: Row(
+            children: [
+              Container(
+                width: 450,
+                color: secondaryColor,
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('BE - Computer Science Engineering', style: Theme.of(context).textTheme.titleMedium),
+                      const SizedBox(height: defaultPadding,),
+                      Text('Government College of Engineering Srirangam, Trichy\n(Present)'),
+                      Text('80%' ,style: TextStyle(color: Colors.white),),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+          mobile: Text('helo mobile'),
         ),
-        
       ],
     );
   }
@@ -188,8 +206,6 @@ class _EducationListState extends State<EducationList> {
     );
   }
 }
-
-
 
 // Column(
 //             crossAxisAlignment: CrossAxisAlignment.start,
