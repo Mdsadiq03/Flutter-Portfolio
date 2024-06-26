@@ -22,7 +22,7 @@ class MyEducation extends StatelessWidget {
         const SizedBox(
           height: defaultPadding,
         ),
-        EduResponsive(
+        const EduResponsive(
           desktop:
               EducationListInfo(padValue1: 10, padValue2: 200, padValue3: 400),
           desktop1M:
@@ -37,30 +37,96 @@ class MyEducation extends StatelessWidget {
               EducationListInfo(padValue1: 10, padValue2: 80, padValue3: 170),
           mobileLarge:
               EducationListInfo(padValue1: 10, padValue2: 10, padValue3: 10),
-          mobileLarge1M: Row(
+          mobileLarge1M: Column(
             children: [
-              Container(
-                width: 450,
-                color: secondaryColor,
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('BE - Computer Science Engineering', style: Theme.of(context).textTheme.titleMedium),
-                      const SizedBox(height: defaultPadding,),
-                      Text('Government College of Engineering Srirangam, Trichy\n(Present)'),
-                      Text('80%' ,style: TextStyle(color: Colors.white),),
-                    ],
-                  ),
-                ),
-              )
+              HoverContainer(
+                title: 'BE - Computer Science Engineering',
+                institute:
+                    'Government College of Engineering Srirangam, Trichy\nPresent',
+                percentage: '80%'),
+              SizedBox(height: defaultPadding),  
+              HoverContainer(
+                title: 'HSC - Higher Secondary School Certificate',
+                institute:
+                    'Infant Jesus Matric Hr Sec School, Tirupur\n2021',
+                percentage: '92%'),
+              SizedBox(height: defaultPadding),    
+              HoverContainer(
+                title: 'SSLC - Secondary School Leaving Certificate',
+                institute:
+                    "St. Joseph's Matric Hr Sec School, Tirupur\n2019",
+                percentage: '93%'),    
             ],
-          ),
-          mobile: Text('helo mobile'),
+          ), 
+          mobile: Text("I'll Fix You Tomorrow"),
         ),
       ],
     );
+  }
+}
+
+class HoverContainer extends StatefulWidget {
+  const HoverContainer(
+      {super.key,
+      required this.title,
+      required this.institute,
+      required this.percentage});
+
+  final String title;
+  final String institute;
+  final String percentage;
+
+  @override
+  _HoverContainerState createState() => _HoverContainerState();
+}
+
+class _HoverContainerState extends State<HoverContainer> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (event) => _onHover(true),
+      onExit: (event) => _onHover(false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        width: 450,
+        transform: Matrix4.identity()..scale(_isHovered ? 1.008 : 1.0),
+        decoration: BoxDecoration(
+          color: secondaryColor,
+          boxShadow: _isHovered
+              ? [
+                  BoxShadow(
+                      color: Colors.white, blurRadius: 10, spreadRadius: 2)
+                ]
+              : [],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.title,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(height: defaultPadding),
+              Text(widget.institute),
+              Text(
+                widget.percentage,
+                style: TextStyle(color: Colors.white),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _onHover(bool isHovered) {
+    setState(() {
+      _isHovered = isHovered;
+    });
   }
 }
 
@@ -154,7 +220,7 @@ class _EducationListState extends State<EducationList> {
               boxShadow: _isHovered
                   ? [
                       BoxShadow(
-                        color: primaryColor,
+                        color: Colors.white,
                         blurRadius: 10.0,
                         offset: Offset(0, 5),
                       )
