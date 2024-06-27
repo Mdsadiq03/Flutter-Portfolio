@@ -43,22 +43,50 @@ class MyEducation extends StatelessWidget {
                 title: 'BE - Computer Science Engineering',
                 institute:
                     'Government College of Engineering Srirangam, Trichy\nPresent',
-                percentage: '80%'),
-              SizedBox(height: defaultPadding),  
+                percentage: '80%',
+                width: 450,
+              ),
+              SizedBox(height: defaultPadding),
               HoverContainer(
                 title: 'HSC - Higher Secondary School Certificate',
-                institute:
-                    'Infant Jesus Matric Hr Sec School, Tirupur\n2021',
-                percentage: '92%'),
-              SizedBox(height: defaultPadding),    
+                institute: 'Infant Jesus Matric Hr Sec School, Tirupur\n2021',
+                percentage: '92%',
+                width: 450,
+              ),
+              SizedBox(height: defaultPadding),
               HoverContainer(
                 title: 'SSLC - Secondary School Leaving Certificate',
-                institute:
-                    "St. Joseph's Matric Hr Sec School, Tirupur\n2019",
-                percentage: '93%'),    
+                institute: "St. Joseph's Matric Hr Sec School, Tirupur\n2019",
+                percentage: '93%',
+                width: 450,
+              ),
             ],
-          ), 
-          mobile: Text("I'll Fix You Tomorrow"),
+          ),
+          mobile: Column(
+            children: [
+              HoverContainer(
+                title: 'BE - Computer Science Engineering',
+                institute:
+                    'Government College of Engineering Srirangam, Trichy\nPresent',
+                percentage: '80%',
+                width: 350,
+              ),
+              SizedBox(height: defaultPadding),
+              HoverContainer(
+                title: 'HSC - Higher Secondary School Certificate',
+                institute: 'Infant Jesus Matric Hr Sec School, Tirupur\n2021',
+                percentage: '92%',
+                width: 350,
+              ),
+              SizedBox(height: defaultPadding),
+              HoverContainer(
+                title: 'SSLC - Secondary School Leaving Certificate',
+                institute: "St. Joseph's Matric Hr Sec School, Tirupur\n2019",
+                percentage: '93%',
+                width: 350,
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -70,11 +98,13 @@ class HoverContainer extends StatefulWidget {
       {super.key,
       required this.title,
       required this.institute,
-      required this.percentage});
+      required this.percentage,
+      required this.width});
 
   final String title;
   final String institute;
   final String percentage;
+  final double width;
 
   @override
   _HoverContainerState createState() => _HoverContainerState();
@@ -90,7 +120,7 @@ class _HoverContainerState extends State<HoverContainer> {
       onExit: (event) => _onHover(false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        width: 450,
+        width: widget.width,
         transform: Matrix4.identity()..scale(_isHovered ? 1.008 : 1.0),
         decoration: BoxDecoration(
           color: secondaryColor,
