@@ -57,32 +57,66 @@ class _ScoopOnMeState extends State<ScoopOnMe> with SingleTickerProviderStateMix
             ),
             borderRadius: BorderRadius.circular(10), // Adjust border radius as needed
           ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                child: ClipRect(
-                  child: SlideTransition(
-                    position: _offsetAnimation,
-                    child: Text(
-                      "Enthusiastic Flutter Developer driven by a passion for crafting seamless mobile experiences. Equipped with a solid foundation in programming and dedicated to mastering Dart & Flutter for cross-platform app development. Excited by Flutter's widget-based architecture and committed to refining skills through continuous learning. Actively seeking collaborative opportunities within the vibrant Flutter developer community.",
-                      style: TextStyle(fontSize: 16),
-                      textAlign: TextAlign.start, // Align text to the start
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              if (constraints.maxWidth < 430) { // Adjust width threshold as needed
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        'assets/images/my_pic.jpg',
+                        width: 200,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 16), // Add spacing between text and image
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  'assets/images/my_pic.jpg',
-                  width: 200,
-                  height: 200,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ],
+                    const SizedBox(height: 16), // Add spacing between text and image
+                    ClipRect(
+                      child: SlideTransition(
+                        position: _offsetAnimation,
+                        child: Text(
+                          "Enthusiastic Flutter Developer driven by a passion for crafting seamless mobile experiences. Equipped with a solid foundation in programming and dedicated to mastering Dart & Flutter for cross-platform app development. Excited by Flutter's widget-based architecture and committed to refining skills through continuous learning. Actively seeking collaborative opportunities within the vibrant Flutter developer community.",
+                          style: TextStyle(fontSize: 16),
+                          textAlign: TextAlign.center, // Align text to the center
+                        ),
+                      ),
+                    ),
+                    
+                  ],
+                );
+              } else {
+                return Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: ClipRect(
+                        child: SlideTransition(
+                          position: _offsetAnimation,
+                          child: Text(
+                            "Enthusiastic Flutter Developer driven by a passion for crafting seamless mobile experiences. Equipped with a solid foundation in programming and dedicated to mastering Dart & Flutter for cross-platform app development. Excited by Flutter's widget-based architecture and committed to refining skills through continuous learning. Actively seeking collaborative opportunities within the vibrant Flutter developer community.",
+                            style: TextStyle(fontSize: 16),
+                            textAlign: TextAlign.start, // Align text to the start
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16), // Add spacing between text and image
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        'assets/images/my_pic.jpg',
+                        width: 200,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
+                );
+              }
+            },
           ),
         ),
         const SizedBox(height: defaultPadding),
