@@ -18,6 +18,9 @@ class EduResponsive extends StatelessWidget {
   final Widget? desktop1M;
   final Widget? desktop;
 
+  static bool isMobile(BuildContext context) =>
+      MediaQuery.of(context).size.width <= 500;
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;

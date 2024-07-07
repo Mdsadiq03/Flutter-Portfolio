@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/responsive.dart';
+import 'package:portfolio/responsive_edu.dart';
 
 class HomeBanner extends StatelessWidget {
   const HomeBanner({
@@ -83,22 +84,37 @@ class MyBuildAnimatedText extends StatelessWidget {
       style: Theme.of(context).textTheme.titleSmall!,
       child: Row(
         children: [
-          if(!Responsive.isMobileLarge(context)) FlutterCodedText(),
-          if(!Responsive.isMobileLarge(context)) SizedBox(
-            width: defaultPadding / 2,
-          ),
+          if (!Responsive.isMobileLarge(context)) FlutterCodedText(),
+          if (!Responsive.isMobileLarge(context))
+            SizedBox(
+              width: defaultPadding / 2,
+            ),
           Text('I build '),
-          AnimatedTextKit(
-            animatedTexts: [
-              TyperAnimatedText('Shopping list with Firebase Realtime Database'),
-              TyperAnimatedText('Food delivery app shows flutter UI'),
-              TyperAnimatedText('Expense Tracker app with dark and light theme'),
-            ],
-          ),
-          if(!Responsive.isMobileLarge(context)) SizedBox(
-            width: defaultPadding / 2,
-          ),
-          if(!Responsive.isMobileLarge(context)) FlutterCodedText(),
+          if (EduResponsive.isMobile(context))
+            AnimatedTextKit(
+              animatedTexts: [
+                TyperAnimatedText(
+                    'Shopping list + Firebase Database'),
+                TyperAnimatedText('Food delivery app - flutter UI'),
+                TyperAnimatedText(
+                    'Expense Tracker app dark,light theme'),
+              ],
+            ),
+          if (!EduResponsive.isMobile(context))
+            AnimatedTextKit(
+              animatedTexts: [
+                TyperAnimatedText(
+                    'Shopping list with Firebase Realtime Database'),
+                TyperAnimatedText('Food delivery app shows flutter UI'),
+                TyperAnimatedText(
+                    'Expense Tracker app with dark and light theme'),
+              ],
+            ),
+          if (!Responsive.isMobileLarge(context))
+            SizedBox(
+              width: defaultPadding / 2,
+            ),
+          if (!Responsive.isMobileLarge(context)) FlutterCodedText(),
         ],
       ),
     );
