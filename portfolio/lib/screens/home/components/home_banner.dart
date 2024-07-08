@@ -16,9 +16,13 @@ class HomeBanner extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset(
+          if (!EduResponsive.isMobile(context)) Image.asset(
             'assets/images/bg1.jpg',
             fit: BoxFit.fill,
+          ),
+          if (EduResponsive.isMobile(context)) Image.asset(
+            'assets/images/bg1.jpg',
+            fit: BoxFit.cover,
           ),
           Container(
             color: darkColor.withOpacity(0.66),
@@ -93,11 +97,9 @@ class MyBuildAnimatedText extends StatelessWidget {
           if (EduResponsive.isMobile(context))
             AnimatedTextKit(
               animatedTexts: [
-                TyperAnimatedText(
-                    'Shopping list + Firebase Database'),
+                TyperAnimatedText('Shopping list + Firebase Database'),
                 TyperAnimatedText('Food delivery app - flutter UI'),
-                TyperAnimatedText(
-                    'Expense Tracker app dark,light theme'),
+                TyperAnimatedText('Expense Tracker app dark,light theme'),
               ],
             ),
           if (!EduResponsive.isMobile(context))
