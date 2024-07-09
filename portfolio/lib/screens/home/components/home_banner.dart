@@ -16,14 +16,16 @@ class HomeBanner extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          if (!EduResponsive.isMobile(context)) Image.asset(
-            'assets/images/bg1.jpg',
-            fit: BoxFit.fill,
-          ),
-          if (EduResponsive.isMobile(context)) Image.asset(
-            'assets/images/bg1.jpg',
-            fit: BoxFit.cover,
-          ),
+          if (!EduResponsive.isMobile(context))
+            Image.asset(
+              'assets/images/bg1.jpg',
+              fit: BoxFit.fill,
+            ),
+          if (EduResponsive.isMobile(context))
+            Image.asset(
+              'assets/images/bg1.jpg',
+              fit: BoxFit.cover,
+            ),
           Container(
             color: darkColor.withOpacity(0.66),
           ),
@@ -35,15 +37,15 @@ class HomeBanner extends StatelessWidget {
               children: [
                 Text(
                   'Discover my Amazing \nArt Space!',
-                  style: Responsive.isDesktop(context)
-                      ? Theme.of(context).textTheme.headlineLarge!.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          )
-                      : Theme.of(context).textTheme.headlineMedium!.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
+                    style: Responsive.isDesktop(context)
+                        ? Theme.of(context).textTheme.headlineLarge!.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            )
+                        : Theme.of(context).textTheme.headlineMedium!.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
                 ),
                 if (!Responsive.isMobileLarge(context))
                   const SizedBox(
