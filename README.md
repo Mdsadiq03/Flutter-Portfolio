@@ -2,4 +2,3 @@
 Personal Portfolio
 - Animation
 - Responsive
-- Attractive
