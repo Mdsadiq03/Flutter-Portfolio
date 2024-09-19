@@ -1,5 +1,2 @@
 # Flutter-Portfolio
-Personal Portfolio
-- Animation
-- Responsive
-- Attractive
+- Personal Portfolio
