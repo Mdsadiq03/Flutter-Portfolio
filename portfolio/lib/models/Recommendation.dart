@@ -6,27 +6,27 @@ class Recommendation {
 
 final List<Recommendation> demo_recommendations = [
   Recommendation(
-    name: "Kolapo Obanewa",
-    source: "Linkedin",
+    name: "Reading Books",
+    source: "Non fictional",
     text:
-        "I have had the pleasure of working with Anwar on two flutter projects and what strikes me the most about his work is his ability to write clean and reusable codes with best practices. He is hardworking and makes it so easy to transcribe ideas into beautiful and testable flutter apps. He is a Flutter/Dart gem and has my highest recommendation",
+        "Atomic Habits by James Clear\nThe Psychology of Money by Morgan Housel\nCrushing it! by Gary Vaynerchuk\nThe Almanack of Naval Ravikant by Eric Jorgenson and 2 Mark Manson's book",
   ),
   Recommendation(
-    name: "Reza Shahbazi",
-    source: "Linkedin",
+    name: "Drawing",
+    source: "Pencil Sketching",
     text:
-        "Abu is great asset for any organization. It's a true pleasure working with him at TakeIn. His flutter skill is amazing as well as his professionalism and being a good team player. Abu's problem solving skill is also one of his great skills.",
+        "Drawing has been a passion of mine since school, where I explored various sketches like portraits, landscapes, animals, and abstract designs. I love working with pencil sketches to bring detail and depth. In my free time, I continue refining my skills and using art as a creative outlet to express myself and unwind.",
   ),
   Recommendation(
-    name: "Diadem",
-    source: "YouTube",
+    name: "Gym",
+    source: "Wellness Enthusiast",
     text:
-        "I like your way you doing your project and you taught us. After I watch this I like and hit the subscribe button and then watch your video playlist one by one!! Within three hours, I learned a lot! I share your channel in my college WhatsApp group!",
+        "Fitness is a key part of my lifestyle, where the gym becomes more than a place—it's a space for self-discipline and balance. I focus not on bodybuilding, but on staying active, strong, and in tune with my body.",
   ),
   Recommendation(
-    name: "Roshan Shetty",
-    source: "YouTube",
+    name: "Handball",
+    source: "sport",
     text:
-        "Very straightforward, professional and also the best flutter videos in the youtube! It will be great if you add some comments to your steps with 0.5 seconds pause before implementing this step. By meaning of steps, I mean not the basic, but structural steps, like 10-20 steps per video. However, thank you very much!",
+        "As a passionate handball competitor, I’ve embraced the thrill of competition at the zonal level, earning recognition through various accolades. This journey has enriched my skills and instilled a deep appreciation for teamwork, discipline, and perseverance.",
   ),
 ];

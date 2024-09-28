@@ -21,10 +21,10 @@ class HighlightsInfo extends StatelessWidget {
                   children: [
                     Highlight(
                       counter: AnimatedCounter(
-                        value: 100,
+                        value: 180,
                         text: '+',
                       ),
-                      label: 'Subscribers',
+                      label: 'LeetCode problems',
                     ),
                     Highlight(
                       counter: AnimatedCounter(

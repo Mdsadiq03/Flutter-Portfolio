@@ -18,6 +18,7 @@ class MyInfo extends StatelessWidget {
               radius: 50,
               backgroundImage:
                   AssetImage("assets/images/my_pic.jpg"),
+              backgroundColor: Color.fromARGB(255, 5, 0, 43),    
             ),
             const Spacer(),
             Text(
