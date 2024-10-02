@@ -44,7 +44,7 @@ class _ScoopOnMeState extends State<ScoopOnMe> with SingleTickerProviderStateMix
       children: [
         const SizedBox(height: defaultPadding,),
         Text(
-          'The Scoop on Me',
+          'A Scoop on Me',
           style: Theme.of(context).textTheme.headlineSmall,
         ),
         const SizedBox(height: defaultPadding), // Add spacing between title and content

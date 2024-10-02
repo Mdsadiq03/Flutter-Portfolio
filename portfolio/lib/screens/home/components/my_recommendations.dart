@@ -39,7 +39,7 @@ class _RecommendationsState extends State<Recommendations> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Hobbies',
+            'Avocations',
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(

@@ -26,7 +26,7 @@ class _MyProjectState extends State<MyProject> with TickerProviderStateMixin {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'My Projects',
+            'My Flutter Projects',
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(
