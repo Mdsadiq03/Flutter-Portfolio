@@ -22,10 +22,32 @@ class HomeScreen extends StatelessWidget {
         MyEducation(),
         MyCertificates(),
         Recommendations(),
+        CopyRight(),
         
       ],
     );
   }
 }
 
+// CopyRight class implementation
+class CopyRight extends StatelessWidget {
+  const CopyRight({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text(
+        'Copyright © 2024 MohamedSadiq. All Rights Reserved.',
+        style: TextStyle(
+          fontSize: 12,
+          color: Colors.grey,
+          fontFamily: 'Roboto', // Replace with your desired font family
+          fontWeight: FontWeight.w500, // Optional: Add font weight for emphasis
+        ),
+        textAlign: TextAlign.center, // Align text to the center
+      ),
+    );
+  }
+}
 
