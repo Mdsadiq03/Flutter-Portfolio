@@ -21,7 +21,7 @@ class HighlightsInfo extends StatelessWidget {
                   children: [
                     Highlight(
                       counter: AnimatedCounter(
-                        value: 180,
+                        value: 200,
                         text: '+',
                       ),
                       label: 'LeetCode problems',
@@ -42,17 +42,17 @@ class HighlightsInfo extends StatelessWidget {
                   children: [
                     Highlight(
                       counter: AnimatedCounter(
-                        value: 100,
+                        value: 8,
                         text: '+',
                       ),
                       label: 'GitHub Projects',
                     ),
                     Highlight(
                       counter: AnimatedCounter(
-                        value: 100,
+                        value: 10,
                         text: '+',
                       ),
-                      label: 'Stars',
+                      label: 'Badges',
                     ),
                   ],
                 ),
@@ -63,31 +63,31 @@ class HighlightsInfo extends StatelessWidget {
               children: [
                 Highlight(
                   counter: AnimatedCounter(
-                    value: 100,
+                    value: 200,
                     text: '+',
                   ),
-                  label: 'Subscribers',
+                  label: 'Leetcode problems',
                 ),
                 Highlight(
                   counter: AnimatedCounter(
-                    value: 100,
+                    value: 600,
                     text: '+',
                   ),
-                  label: 'Videos',
+                  label: 'Followers',
                 ),
                 Highlight(
                   counter: AnimatedCounter(
-                    value: 100,
+                    value: 8,
                     text: '+',
                   ),
                   label: 'GitHub Projects',
                 ),
                 Highlight(
                   counter: AnimatedCounter(
-                    value: 100,
+                    value: 10,
                     text: '+',
                   ),
-                  label: 'Stars',
+                  label: 'Badges',
                 ),
               ],
             ),
