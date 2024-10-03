@@ -77,6 +77,48 @@ class _MyProjectState extends State<MyProject> with TickerProviderStateMixin {
   }
 }
 
+// class ProjectGridView extends StatelessWidget {
+//   const ProjectGridView({
+//     super.key,
+//     required this.visibleIndexes,
+//     this.crossAxisCount = 3,
+//     this.childAspectRatio = 1.2,
+//   });
+
+//   final List<int> visibleIndexes;
+//   final int crossAxisCount;
+//   final double childAspectRatio;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return GridView.builder(
+//       shrinkWrap: true,
+//       physics: const NeverScrollableScrollPhysics(),
+//       itemCount: demo_projects.length,
+//       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//         crossAxisCount: crossAxisCount,
+//         childAspectRatio: childAspectRatio,
+//         crossAxisSpacing: defaultPadding,
+//         mainAxisSpacing: defaultPadding,
+//       ),
+//       itemBuilder: (context, index) {
+//         bool isVisible = visibleIndexes.contains(index);
+//         return AnimatedSlide(
+//           offset: isVisible ? Offset(0, 0) : Offset(0, 1),
+//           duration: const Duration(milliseconds: 500),
+//           child: AnimatedOpacity(
+//             opacity: isVisible ? 1.0 : 0.0,
+//             duration: const Duration(milliseconds: 500),
+//             child: ProjectCard(
+//               project: demo_projects[index],
+//             ),
+//           ),
+//         );
+//       },
+//     );
+//   }
+// }
+
 class ProjectGridView extends StatelessWidget {
   const ProjectGridView({
     super.key,
@@ -91,6 +133,8 @@ class ProjectGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isMobile = Responsive.isMobile(context);
+
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -103,6 +147,15 @@ class ProjectGridView extends StatelessWidget {
       ),
       itemBuilder: (context, index) {
         bool isVisible = visibleIndexes.contains(index);
+
+        // For mobile, skip the animations and directly return the ProjectCard
+        if (isMobile) {
+          return ProjectCard(
+            project: demo_projects[index],
+          );
+        }
+
+        // For other devices, retain the animations
         return AnimatedSlide(
           offset: isVisible ? Offset(0, 0) : Offset(0, 1),
           duration: const Duration(milliseconds: 500),

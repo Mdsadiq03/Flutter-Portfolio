@@ -18,7 +18,7 @@ List<Project> demo_projects = [
     url: "https://github.com/Mdsadiq03/Flutter-Projects/tree/main/MealsApp",     
   ),
   Project(
-    title: "Shopping list - Firebase Realtime Database",
+    title: "Shopping list - Firebase Realtime DB",
     description:
         "Grocery Management provides a user-friendly interface for adding, removing, and viewing grocery items. Real-Time Sync of Integration with Firebase Realtime Database for instant updates and reliable data storage. Customizable Categories allows users to classify and manage their grocery items efficiently.",
     url: "https://github.com/Mdsadiq03/Flutter-Projects/tree/main/ShoppingList",    
