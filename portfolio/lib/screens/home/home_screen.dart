@@ -8,22 +8,33 @@ import 'package:portfolio/screens/home/components/my_projects.dart';
 import 'package:portfolio/screens/home/components/my_recommendations.dart';
 import 'package:portfolio/screens/main/main_screen.dart';
 
+
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  final ScrollController _scrollController = ScrollController();
+
+  HomeScreen({super.key});
+
+  void _scrollToHighlights() {
+    _scrollController.animateTo(
+      400.0, // Adjust this value based on where the "HighlightsInfo" section starts
+      duration: const Duration(seconds: 1),
+      curve: Curves.easeInOut,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const MainScreen(
+    return MainScreen(
+      scrollController: _scrollController, // Pass the scroll controller
       children: [
-        HomeBanner(),
+        HomeBanner(onExplorePressed: _scrollToHighlights), // Pass callback
         HighlightsInfo(),
         ScoopOnMe(),
         MyProject(),
         MyEducation(),
         MyCertificates(),
         Recommendations(),
-        CopyRight(),
-        
+        const CopyRight(),
       ],
     );
   }

@@ -1,4 +1,3 @@
-import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/constants.dart';
@@ -7,7 +6,7 @@ import 'package:portfolio/screens/main/components/coding.dart';
 import 'package:portfolio/screens/main/components/knowlwdges.dart';
 import 'package:portfolio/screens/main/components/my_info.dart';
 import 'package:portfolio/screens/main/components/skills.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart'; // Import url_launcher for opening URLs
 
 class SideMenu extends StatefulWidget {
   const SideMenu({
@@ -27,6 +26,18 @@ class _SideMenuState extends State<SideMenu> {
     );
   }
 
+  // Use this method to open the hosted PDF link
+  void _openResume() async {
+    const url = 'https://drive.google.com/file/d/1Ndmfa3m84Q7-Ztlz6rEC8AhovjgGIPYg/view?usp=drive_link'; // Replace with your hosted PDF link
+    Uri uri = Uri.parse(url);
+
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication); // Opens the link in the browser or external app
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -41,7 +52,7 @@ class _SideMenuState extends State<SideMenu> {
                   controller: _scrollController,
                   padding: const EdgeInsets.all(defaultPadding),
                   child: Column(
-                    children: [
+                    children: [ 
                       const AreaInfoText(
                         title: 'Residence',
                         text: 'Tamilnadu',
@@ -64,10 +75,9 @@ class _SideMenuState extends State<SideMenu> {
                       SizedBox(
                         height: defaultPadding / 2,
                       ),
+                      // Updated TextButton to open the hosted PDF
                       TextButton(
-                        onPressed: () {
-                          html.window.open('assets/resume/MyResume.pdf', 'Resume');
-                        },
+                        onPressed: _openResume,
                         child: FittedBox(
                           child: Row(
                             children: [
@@ -78,7 +88,7 @@ class _SideMenuState extends State<SideMenu> {
                               SizedBox(
                                 width: defaultPadding / 2,
                               ),
-                              SvgPicture.asset('assets/icons/download.svg')
+                              SvgPicture.asset('assets/icons/download.svg'),
                             ],
                           ),
                         ),
@@ -142,3 +152,4 @@ class _LinkState extends State<Link> {
     );
   }
 }
+

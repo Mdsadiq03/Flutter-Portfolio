@@ -5,9 +5,9 @@ import 'package:portfolio/responsive.dart';
 import 'package:portfolio/responsive_edu.dart';
 
 class HomeBanner extends StatelessWidget {
-  const HomeBanner({
-    super.key,
-  });
+  final VoidCallback onExplorePressed; // Add this to handle button click
+
+  const HomeBanner({super.key, required this.onExplorePressed});
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +37,15 @@ class HomeBanner extends StatelessWidget {
               children: [
                 Text(
                   'Discover my Amazing \nArt Space!',
-                    style: Responsive.isDesktop(context)
-                        ? Theme.of(context).textTheme.headlineLarge!.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            )
-                        : Theme.of(context).textTheme.headlineMedium!.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
+                  style: Responsive.isDesktop(context)
+                      ? Theme.of(context).textTheme.headlineLarge!.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          )
+                      : Theme.of(context).textTheme.headlineMedium!.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                 ),
                 if (!Responsive.isMobileLarge(context))
                   const SizedBox(
@@ -57,7 +57,7 @@ class HomeBanner extends StatelessWidget {
                 ),
                 if (!Responsive.isMobileLarge(context))
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: onExplorePressed, // Scrolls when button is pressed
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.symmetric(
                         horizontal: defaultPadding * 2,
@@ -111,7 +111,7 @@ class MyBuildAnimatedText extends StatelessWidget {
                     'Shopping list with Firebase Realtime Database'),
                 TyperAnimatedText('Food delivery app shows flutter UI'),
                 TyperAnimatedText(
-                    'Expense Tracker app with dark and light theme'),
+                    'Expense Tracker app, dark and light theme'),
               ],
             ),
           if (!Responsive.isMobileLarge(context))
