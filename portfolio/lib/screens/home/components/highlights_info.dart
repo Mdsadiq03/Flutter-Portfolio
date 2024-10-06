@@ -133,7 +133,7 @@ class HighlightsInfo extends StatelessWidget {
                   children: const [
                     Highlight(
                       counter: AnimatedCounter(
-                        value: 8,
+                        value: 12,
                         text: '+',
                       ),
                       label: 'GitHub Projects',
@@ -168,7 +168,7 @@ class HighlightsInfo extends StatelessWidget {
                 ),
                 Highlight(
                   counter: AnimatedCounter(
-                    value: 8,
+                    value: 12,
                     text: '+',
                   ),
                   label: 'GitHub Projects',
