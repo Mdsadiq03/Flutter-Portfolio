@@ -95,7 +95,7 @@ class MyBuildAnimatedText extends StatelessWidget {
             SizedBox(
               width: defaultPadding / 2,
             ),
-          Text('I build '),
+          Text('I built '),
           if (EduResponsive.isMobile(context))
             AnimatedTextKit(
               animatedTexts: [
