@@ -77,48 +77,6 @@ class _MyProjectState extends State<MyProject> with TickerProviderStateMixin {
   }
 }
 
-// class ProjectGridView extends StatelessWidget {
-//   const ProjectGridView({
-//     super.key,
-//     required this.visibleIndexes,
-//     this.crossAxisCount = 3,
-//     this.childAspectRatio = 1.2,
-//   });
-
-//   final List<int> visibleIndexes;
-//   final int crossAxisCount;
-//   final double childAspectRatio;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return GridView.builder(
-//       shrinkWrap: true,
-//       physics: const NeverScrollableScrollPhysics(),
-//       itemCount: demo_projects.length,
-//       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//         crossAxisCount: crossAxisCount,
-//         childAspectRatio: childAspectRatio,
-//         crossAxisSpacing: defaultPadding,
-//         mainAxisSpacing: defaultPadding,
-//       ),
-//       itemBuilder: (context, index) {
-//         bool isVisible = visibleIndexes.contains(index);
-//         return AnimatedSlide(
-//           offset: isVisible ? Offset(0, 0) : Offset(0, 1),
-//           duration: const Duration(milliseconds: 500),
-//           child: AnimatedOpacity(
-//             opacity: isVisible ? 1.0 : 0.0,
-//             duration: const Duration(milliseconds: 500),
-//             child: ProjectCard(
-//               project: demo_projects[index],
-//             ),
-//           ),
-//         );
-//       },
-//     );
-//   }
-// }
-
 class ProjectGridView extends StatelessWidget {
   const ProjectGridView({
     super.key,
