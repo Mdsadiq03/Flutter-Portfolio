@@ -67,63 +67,6 @@ class _MyCertificatesState extends State<MyCertificates> {
   }
 }
 
-// class AddCertificate extends StatefulWidget {
-//   const AddCertificate({
-//     super.key,
-//     required this.image,
-//   });
-
-//   final String image;
-
-//   @override
-//   State<AddCertificate> createState() => _AddCertificateState();
-// }
-
-// class _AddCertificateState extends State<AddCertificate> {
-//   bool _isHovered = false;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MouseRegion(
-//       onEnter: (_) {
-//         setState(() {
-//           _isHovered = true;
-//         });
-//       },
-//       onExit: (_) {
-//         setState(() {
-//           _isHovered = false;
-//         });
-//       },
-//       child: ClipRRect(
-//         borderRadius: BorderRadius.circular(10),
-//         child: Container(
-//           width: 400,
-//           height: 270,
-//           decoration: BoxDecoration(
-//             boxShadow: _isHovered
-//                 ? [
-//                     BoxShadow(
-//                       color: Colors.white.withOpacity(0.6),
-//                       spreadRadius: 3,
-//                       blurRadius: 5,
-//                       offset: Offset(0, 3),
-//                     ),
-//                   ]
-//                 : [],
-//           ),
-//           child: Opacity(
-//             opacity: 0.8, // Set the desired opacity value here
-//             child: Image.asset(
-//               widget.image,
-//               fit: BoxFit.cover,
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 class AddCertificate extends StatefulWidget {
   const AddCertificate({
