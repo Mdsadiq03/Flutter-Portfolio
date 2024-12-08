@@ -28,7 +28,7 @@ class _SideMenuState extends State<SideMenu> {
 
   // Use this method to open the hosted PDF link
   void _openResume() async {
-    const url = 'https://drive.google.com/file/d/1Z6-6eHZqlICJz13aYV0D1ujJT3GlHSTn/view?usp=drive_link'; // Replace with your hosted PDF link
+    const url = 'https://drive.google.com/file/d/1H-BCPhs32oXfGlV2gVz4iLB2wNABlBO1/view?usp=drive_link'; // Replace with your hosted PDF link
     Uri uri = Uri.parse(url);
 
     if (await canLaunchUrl(uri)) {
